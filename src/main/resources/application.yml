@@ -1,0 +1,16 @@
+server: 
+  port: 8080
+  
+spring: 
+  application: 
+    name: ms-service-consumer
+
+eureka: 
+  instance: 
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.hostname}:${spring.cloud.client.ipAddress}:${server.port}
+  client: 
+    healthcheck: 
+      enabled: true
+    service-url: 
+      default-zone: http://localhost:8761/eureka/
